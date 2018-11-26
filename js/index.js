@@ -1,4 +1,4 @@
 (function() {
-  new CanvasComponent('input-canvas');
+  new CropComponent('input-canvas', 'output-canvas');
   new FileInputComponent('input-button');
 })();
