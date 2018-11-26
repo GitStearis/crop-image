@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>КРУГОВАЯ ПОРУКА МАЖЕТ КАК КОПОТЬ</title>
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <main>
+    <div class="input-container" id="input-container">
+      <input type="file" class="input-button" id="input-button" name="input-button" accept="image/x-png, image/gif, image/jpeg">
+      <label for="input-button" class="input-label">📂</label>
+      <canvas width="400" height="400" class="input-canvas" id="input-canvas"></canvas>
+    </div>
+    <div class="output-container" id="output-container">
+      <canvas width="200" height="200" class="output-canvas" id="output-canvas"></canvas>
+    </div>
+  </main>
+
+  <script src="./js/components/fileInputComponent.js"></script>
+  <script src="./js/components/canvasComponent.js"></script>
+  <script src="./js/index.js"></script>
+</body>
+</html>
