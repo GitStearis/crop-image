@@ -1,21 +1,21 @@
-class FileInputComponent {
+export default class FileInputComponent {
   constructor(id) {
-    this.input = document.getElementById(id);
+    this.button = document.getElementById(id);
     this.image = new Image();
     this.registerOnFileLoadEvent();
   }
 
   registerOnFileLoadEvent() {
-    this.input.addEventListener('change', this.onFileLoad.bind(this));
+    this.button.addEventListener('change', this.onFileLoad.bind(this));
   }
 
   registerOnFileReadyEvent(handler) {
-    this.input.addEventListener('fileready', handler);
+    this.button.addEventListener('fileready', handler);
   }
 
   dispatchFileReadyEvent() {
     const event = new CustomEvent('fileready', { detail: this.image });
-    this.input.dispatchEvent(event);
+    this.button.dispatchEvent(event);
   }
 
   createImageFromFile(file) {
@@ -30,8 +30,8 @@ class FileInputComponent {
   }
 
   onFileLoad() {
-    if (this.input.files) {
-      const file = this.input.files[0];
+    if (this.button.files) {
+      const file = this.button.files[0];
       this.createImageFromFile(file);
     }
   }

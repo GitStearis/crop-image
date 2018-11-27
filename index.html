@@ -8,19 +8,22 @@
 </head>
 <body>
   <main>
-    <div class="input-container" id="input-container">
+    <div>
       <input type="file" class="input-button" id="input-button" name="input-button" accept="image/x-png, image/gif, image/jpeg">
-      <label for="input-button" class="input-label">📂</label>
+      <label for="input-button">📂</label>
+    </div>
+    <div class="input-container" id="input-container">
+      
       <canvas width="400" height="400" class="input-canvas" id="input-canvas"></canvas>
     </div>
     <div class="output-container" id="output-container">
       <canvas width="200" height="200" class="output-canvas" id="output-canvas"></canvas>
     </div>
+    <div>
+      <a class="output-button" id="output-button">💾</a>
+    </div>
   </main>
 
-  <script src="./js/components/fileInputComponent.js"></script>
-  <script src="./js/components/cropComponent.js"></script>
-  <script src="./js/controllers/applicationController.js"></script>
-  <script src="./js/index.js"></script>
+  <script type="module" src="./js/index.js"></script>
 </body>
 </html>

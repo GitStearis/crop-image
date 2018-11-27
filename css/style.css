@@ -57,6 +57,8 @@ main {
   width: 400px;
 
   margin: 1em;
+
+  cursor: move;
 }
 
 .output-container {
@@ -86,10 +88,11 @@ main {
 	z-index: -1;
 }
 
-.input-button + label {
+.output-button, .input-button + label {
   margin: 1em;
 
   line-height: 1em;
+  font-size: 2em;
   padding: 0.5em;
 
   color: #cfcfcf;
@@ -101,7 +104,7 @@ main {
   border-radius: 1em;
 }
 
-.input-button:focus + label,
-.input-button + label:hover {
+.output-button:focus, .input-button:focus + label,
+.output-button:hover, .input-button + label:hover {
   color: #6ecb68;
 }

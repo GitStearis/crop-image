@@ -1,4 +1,4 @@
-class CropComponent {
+export default class CropComponent {
   constructor(inputCanvasId, outputCanvasId) {
     this.inputCanvas = document.getElementById(inputCanvasId);
     this.outputCanvas = document.getElementById(outputCanvasId);
