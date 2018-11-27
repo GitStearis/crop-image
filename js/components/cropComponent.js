@@ -19,7 +19,9 @@ export default class CropComponent {
   }
 
   onImageChange(event) {
-    this.initializeImage(event.detail.src)
+    this.selectorX = this.inputCanvas.width / 2;
+    this.selectorY = this.inputCanvas.height / 2;
+    this.initializeImage(event.detail.src);
   }
 
   saveSelected() {
@@ -102,20 +104,16 @@ export default class CropComponent {
     this.image.src = src;
   }
 
-  onImageLoad(event) {
+  onImageLoad() {
     const ratio = this.image.width / this.image.height;
-
     this.width = this.inputCanvas.width;
     this.height = this.width / ratio;
-
     if (this.height > this.inputCanvas.height) {
       this.height = this.inputCanvas.height;
       this.width = this.height * ratio;
     }
-
     this.offsetX = this.inputCanvas.width / 2 - this.width / 2;
     this.offsetY = this.inputCanvas.height / 2 - this.height / 2;
-
     this.redraw();
   }
 
