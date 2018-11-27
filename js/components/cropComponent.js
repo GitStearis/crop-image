@@ -19,7 +19,6 @@ class CropComponent {
   }
 
   onImageChange(event) {
-    console.log(event.detail);
     this.initializeImage(event.detail.src)
   }
 
@@ -44,6 +43,21 @@ class CropComponent {
     return (dx * dx + dy * dy < this.selectorRadius * this.selectorRadius);
   }
 
+  outOfBounds() {
+    if (this.selectorX - this.selectorRadius < this.offsetX) {
+      this.selectorX = this.offsetX + this.selectorRadius;
+    }
+    if (this.selectorY - this.selectorRadius < this.offsetY) {
+      this.selectorY = this.offsetY + this.selectorRadius;
+    }
+    if (this.selectorX + this.selectorRadius > this.offsetX + this.width) {
+      this.selectorX = this.offsetX + this.width - this.selectorRadius
+    }
+    if (this.selectorY + this.selectorRadius > this.offsetY + this.height) {
+      this.selectorY = this.offsetY + this.height - this.selectorRadius;
+    }
+  }
+
   grabSelector(event) {
     if (!this.isDragging) {
       const rect = event.target.getBoundingClientRect();
@@ -64,8 +78,9 @@ class CropComponent {
       const y = event.clientY - rect.top;
       const distanceX = x - this.dragStartX;
       const distanceY = y - this.dragStartY;
-      this.selectorX +=  distanceX;
+      this.selectorX += distanceX;
       this.selectorY += distanceY;
+      this.outOfBounds();
       this.redraw();
       this.dragStartX = x;
       this.dragStartY = y;
