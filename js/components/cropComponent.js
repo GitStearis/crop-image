@@ -19,12 +19,11 @@ class CropComponent {
   }
 
   saveSelected() {
-    const radius = this.selectorRadius - 2;
     this.selectorData = this.inputContext.getImageData(
-      this.selectorX - radius, 
-      this.selectorY - radius, 
-      this.selectorX + radius, 
-      this.selectorY + radius
+      this.selectorX - this.selectorRadius, 
+      this.selectorY - this.selectorRadius, 
+      this.selectorX + this.selectorRadius, 
+      this.selectorY + this.selectorRadius
     );
   }
 
@@ -115,11 +114,11 @@ class CropComponent {
 
   drawCropped() {
     this.outputContext.putImageData(this.selectorData, 0, 0);
+    this.outputContext.globalCompositeOperation='destination-in';
     this.outputContext.beginPath();
-    this.outputContext.arc(this.outputCanvas.width / 2, this.outputCanvas.height / 2, this.selectorRadius, 0, 2 * Math.PI, false);
-    this.outputContext.beginPath();
-    this.outputContext.clearRect(0, 0, this.outputCanvas.width, this.outputCanvas.height); 
-    this.outputContext.restore();
+    this.outputContext.arc(this.outputCanvas.width / 2, this.outputCanvas.height / 2, this.selectorRadius - 2, 0, 2 * Math.PI, false);
+    this.outputContext.closePath();
+    this.outputContext.fill();
   }
 
   clear() {
