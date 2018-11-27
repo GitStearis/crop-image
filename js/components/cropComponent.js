@@ -99,7 +99,7 @@ export default class CropComponent {
     }
   }
 
-  initializeImage(src = './student.jpg') {
+  initializeImage(src = './images/default.jpg') {
     this.image.onload = this.onImageLoad.bind(this);
     this.image.src = src;
   }
