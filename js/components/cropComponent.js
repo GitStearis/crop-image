@@ -18,6 +18,11 @@ class CropComponent {
     this.registerDragEvents();
   }
 
+  onImageChange(event) {
+    console.log(event.detail);
+    this.initializeImage(event.detail.src)
+  }
+
   saveSelected() {
     this.selectorData = this.inputContext.getImageData(
       this.selectorX - this.selectorRadius, 
@@ -77,9 +82,9 @@ class CropComponent {
     }
   }
 
-  initializeImage(src) {
+  initializeImage(src = './student.jpg') {
     this.image.onload = this.onImageLoad.bind(this);
-    this.image.src = './student.jpg';
+    this.image.src = src;
   }
 
   onImageLoad(event) {
